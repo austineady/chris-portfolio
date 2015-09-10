@@ -5,8 +5,8 @@ var Router = Backbone.Router.extend({
   routes: {
     '': 'index',
     'portfolio': 'portfolio',
-    '/about': 'about',
-    '/contact': 'contact'
+    'about': 'about',
+    'contact': 'contact'
   },
 
   initialize: function() {
@@ -25,7 +25,8 @@ var Router = Backbone.Router.extend({
     $('.page').html(view.el);
     $('.grid').masonry({
       itemSelector: '.grid-item',
-      columnWidth: 200
+      columnWidth: 200,
+      gutter: 10
     });
   },
 
