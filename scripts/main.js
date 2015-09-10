@@ -2,6 +2,6 @@
   'use strict';
 
   $(document).ready(function(){
-    $('body').prepend(JST.application());
+    $('.page').html(JST.application());
   });
 })();

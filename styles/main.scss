@@ -15,7 +15,25 @@ $base-font-color: $dark-gray;
 $base-background-color: $very-light-gray;
 
 body {
+  @include outer-container(1500px);
+  height: 100vh;
   font-family: $base-font-family;
   background-color: $base-background-color;
   color: $base-font-color;
+  margin: 0;
+}
+
+.header-logo {
+  @include span-columns(5);
+}
+
+.nav {
+  @include span-columns(12);
+  height: 70px;
+  border: 1px solid red;
+  margin: 0;
+}
+
+.nav-title {
+  @include span-columns(1.3);
 }
