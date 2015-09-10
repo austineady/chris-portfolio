@@ -1,7 +1,9 @@
+import router from 'router';
+
 (function(){
   'use strict';
 
   $(document).ready(function(){
-    $('.page').html(JST.application());
+    Backbone.history.start();
   });
 })();
