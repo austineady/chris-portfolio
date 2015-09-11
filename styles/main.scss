@@ -80,7 +80,7 @@ a {
   background-color: rgba(250, 250, 250, 1);
   top: 5%;
   left: 20%;
-  z-index: 2;
+  z-index: 11;
 }
 
 .underlay {
@@ -90,7 +90,7 @@ a {
   left: 0;
   right: 0;
   background-color: #101112;
-  z-index: 1;
+  z-index: 10;
   transition: 3s;
 }
 
@@ -238,3 +238,27 @@ a {
 //   opacity: 1;
 //   transition: 2s;
 // }
+
+.wedding-hero {
+  @include span-columns(12);
+  height: 500px;
+  position: fixed;
+  background-image: url("https://images.unsplash.com/photo-1430713976611-6c0b558c239e?q=80&fm=jpg&s=fef168e04154defd53432486a9f2ff39");
+  background-size: cover;
+  background-position: 0 -200px;
+  background-repeat: no-repeat;
+}
+
+.wedding-content {
+  @include span-columns(12);
+  height: 800px;
+  background-color: white;
+  position: relative;
+  top: 500px;
+  z-index: 3;
+}
+
+.wedding-grid {
+  width: 400px;
+  height: 300px;
+}

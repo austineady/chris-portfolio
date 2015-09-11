@@ -1,11 +1,12 @@
 import IndexView from './views/indexview';
 import PortfolioView from './views/portfolioview';
+import WeddingsView from './views/weddingview';
 
 var Router = Backbone.Router.extend({
   routes: {
     '': 'index',
     'portfolio': 'portfolio',
-    'portfolio/weddings': 'weddings'
+    'portfolio/weddings': 'weddings',
     'about': 'about',
     'contact': 'contact'
   },
@@ -13,13 +14,6 @@ var Router = Backbone.Router.extend({
   initialize: function() {
     //stuff
   },
-
-  // events: {
-  //   'click .nav-index': 'index',
-  //   'click .nav-portfolio': 'porfolio',
-  //   'click .nav-about': 'about',
-  //   'click .nav-contact': 'contact'
-  // },
 
   index: function() {
     var view = new IndexView();
@@ -39,6 +33,11 @@ var Router = Backbone.Router.extend({
   weddings: function() {
     var view = new WeddingsView();
     $('.page').html(view.el);
+    $('.grid').masonry({
+      itemSelector: '.grid-item',
+      columnWidth: 200,
+      gutter: 5
+    });
   }
 });
 
