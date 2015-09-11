@@ -4,6 +4,11 @@ import {ImageCollection} from './../models/imagemodel';
 export default Backbone.View.extend({
   template: JST.application,
 
+  events: {
+    'click .close-modal': 'close',
+    'click .underlay': 'close',
+  },
+
   initialize: function() {
     this.collection = new ImageCollection([
       {
@@ -47,5 +52,10 @@ export default Backbone.View.extend({
 remove: function(){
   _.invoke(this.children || [], 'remove');
   Backbone.View.prototype.remove.apply(this, arguments);
+},
+
+close: function() {
+  $('.modal').addClass('modal-disabled');
+  $('.underlay').addClass('modal-disabled');
 }
 });

@@ -5,6 +5,7 @@ var Router = Backbone.Router.extend({
   routes: {
     '': 'index',
     'portfolio': 'portfolio',
+    'portfolio/weddings': 'weddings'
     'about': 'about',
     'contact': 'contact'
   },
@@ -26,15 +27,19 @@ var Router = Backbone.Router.extend({
     $('.grid').masonry({
       itemSelector: '.grid-item',
       columnWidth: 200,
-      gutter: 10
+      gutter: 5
     });
   },
 
   portfolio: function() {
     var view = new PortfolioView();
     $('.page').html(view.el);
-    console.log('hello');
   },
+
+  weddings: function() {
+    var view = new WeddingsView();
+    $('.page').html(view.el);
+  }
 });
 
 var router = new Router();

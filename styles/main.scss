@@ -29,20 +29,22 @@ a {
 }
 
 .header-logo {
-  @include span-columns(6);
+  @include span-columns(12);
+  text-align: center;
   font-size: 25px;
+  margin-bottom: 10px;
 }
 
 .nav {
   @include span-columns(12);
-  height: 70px;
+  height: auto;
   margin: 0;
-  line-height: 70px;
   padding: 10px;
 }
 
 .nav-title {
   @include span-columns(1.3);
+  @include shift(1.3);
 }
 
 .grid {
@@ -50,7 +52,7 @@ a {
 }
 
 .grid-item {
-  margin-top: 10px;
+  margin-top: 5px;
 }
 
 .landscape {
@@ -89,10 +91,12 @@ a {
   right: 0;
   background-color: #101112;
   z-index: 1;
+  transition: 3s;
 }
 
 .modal-disabled {
   display: none;
+  transition: 2s;
 }
 
 .modal-picture {
@@ -107,4 +111,130 @@ a {
   font-size: 40px;
   color: white;
   cursor: pointer;
+  z-index: 3;
 }
+
+.portfolio-box {
+  @include span-columns(6);
+  @include omega();
+  position: relative;
+  margin-left: 5px;
+  height: 600px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: white;
+}
+
+.weddings-overlay {
+  width: 0;
+  height: 0;
+  border-bottom: 400px solid rgba(30, 30, 30, 1);
+  border-left: 400px solid transparent;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  cursor: pointer;
+}
+
+.events-overlay {
+  width: 0;
+  height: 0;
+  border-bottom: 400px solid rgba(30, 30, 30, 1);
+  border-right: 400px solid transparent;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  cursor: pointer;
+}
+
+.people-overlay {
+  width: 0;
+  height: 0;
+  border-top: 400px solid rgba(30, 30, 30, 1);
+  border-left: 400px solid transparent;
+  position: absolute;
+  top: 0;
+  right: 0;
+  cursor: pointer;
+}
+
+.inspiration-overlay {
+  width: 0;
+  height: 0;
+  border-top: 400px solid rgba(30, 30, 30, 1);
+  border-right: 400px solid transparent;
+  position: absolute;
+  top: 0;
+  left: 0;
+  cursor: pointer;
+}
+
+.wedding-text {
+  font-size: 30px;
+  position: absolute;
+  bottom: 10%;
+  right: 10%;
+  color: white;
+}
+
+.events-text {
+  font-size: 30px;
+  position: absolute;
+  bottom: 10%;
+  left: 10%;
+  color: white;
+}
+
+.people-text {
+  font-size: 30px;
+  position: absolute;
+  top: 10%;
+  right: 10%;
+  color: white;
+}
+
+.inspiration-text {
+  font-size: 30px;
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  color: white;
+}
+
+// .portfolio-box:hover {
+//   width: 401px;
+//   height: 301px;
+//   transition: 0.5s;
+//   box-shadow: 0 0 7px 3px rgba(0, 0, 0, .2);
+// }
+
+.weddings {
+  @include span-columns(12);
+  height: 600px;
+  background-image: url("https://images.unsplash.com/photo-1427477321886-abc24e8ce923?q=80&fm=jpg&s=08d0215b9854ed7438243faade78bb35");
+  background-size: cover;
+  background-repeat: no-repeat;
+  opacity: 0;
+}
+
+.events {
+  background-image: linear-gradient(rgba(255, 255, 255, 1), rgba(255, 255, 255, 1)), url("https://images.unsplash.com/photo-1417716226287-2f8cd2e80274?q=80&fm=jpg&s=358ca6659a75ac982cbbdfd1efac3634");
+}
+
+.people {
+  background-image: linear-gradient(rgba(255, 255, 255, 1), rgba(255, 255, 255, 1)), url("https://images.unsplash.com/photo-1441886367417-1c946b32a980?q=80&fm=jpg&s=92c4437f580ca32a762c10beb18cbb02");
+}
+
+.inspiration {
+  background-image: linear-gradient(rgba(255, 255, 255, 1), rgba(255, 255, 255, 1)), url("https://images.unsplash.com/photo-1441802763029-b621005a04a5?q=80&fm=jpg&s=f312571ea82c8dfbabc6ee71b2d2d571");
+}
+
+.weddings-overlay:hover ~ .weddings {
+  opacity: 1;
+  transition: 2s;
+}
+
+// .weddings:hover {
+//   opacity: 1;
+//   transition: 2s;
+// }
