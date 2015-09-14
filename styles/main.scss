@@ -2,7 +2,7 @@
 @import '../bower_components/neat/app/assets/stylesheets/neat';
 
 // Typography
-$base-font-family: $helvetica;
+$base-font-family: 'Josefin Sans', sans-serif;;
 
 // Colors
 $blue: #477dca;
@@ -26,6 +26,11 @@ body {
 
 a {
     text-decoration: none;
+    color: inherit;
+}
+
+img {
+  max-width: 100%;
 }
 
 .header-logo {
@@ -38,8 +43,28 @@ a {
 .nav {
   @include span-columns(12);
   height: auto;
+  position: fixed;
+  top: 0;
+  z-index: 9;
   margin: 0;
   padding: 10px;
+  transition: 2s;
+}
+
+.collapsed {
+  background-color: rgba(250, 250, 250, 1);
+  opacity: 1;
+  height: 50px;
+}
+
+.menu-bar {
+  font-size: 30px;
+  color: rgba(40, 40, 40, 1);
+  position: absolute;
+  top: 5px;
+  left: 10px;
+  cursor: pointer;
+  opacity: 0;
 }
 
 .nav-title {
@@ -229,7 +254,7 @@ a {
   background-image: linear-gradient(rgba(255, 255, 255, 1), rgba(255, 255, 255, 1)), url("https://images.unsplash.com/photo-1441802763029-b621005a04a5?q=80&fm=jpg&s=f312571ea82c8dfbabc6ee71b2d2d571");
 }
 
-.weddings-overlay:hover ~ .weddings {
+div.weddings-overlay:hover ~ div.weddings {
   opacity: 1;
   transition: 2s;
 }
@@ -239,17 +264,36 @@ a {
 //   transition: 2s;
 // }
 
-.wedding-hero {
+.portfolio-hero {
   @include span-columns(12);
-  height: 500px;
+  min-height: 600px;
   position: fixed;
-  background-image: url("https://images.unsplash.com/photo-1430713976611-6c0b558c239e?q=80&fm=jpg&s=fef168e04154defd53432486a9f2ff39");
+  top: 0;
   background-size: cover;
-  background-position: 0 -200px;
   background-repeat: no-repeat;
 }
 
-.wedding-content {
+.wedding-hero {
+  background-image: url("https://images.unsplash.com/photo-1430713976611-6c0b558c239e?q=80&fm=jpg&s=fef168e04154defd53432486a9f2ff39");
+  background-position: center;
+}
+
+.events-hero {
+  background-image: url("https://images.unsplash.com/46/unsplash_52c319226cefb_1.JPG?q=80&fm=jpg&s=b07cdc1f522e977fda8cc7ee63848f4d");
+  background-position: center;
+}
+
+.people-hero {
+  background-image: url("https://images.unsplash.com/reserve/fPuLkQNXRUKI6HQ2cMPf_IMG_4761.jpg?q=80&fm=jpg&s=cd26d7d6a097e9f77e13b1d18836409e");
+  background-position: center;
+}
+
+.inspiration-hero {
+  background-image: url("https://images.unsplash.com/photo-1422284763110-6d0edd657b13?q=80&fm=jpg&s=8c5721f5e952f910b0633f85f8a92450");
+  background-position: center;
+}
+
+.portfolio-content {
   @include span-columns(12);
   height: 800px;
   background-color: white;

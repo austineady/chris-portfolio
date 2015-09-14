@@ -1,12 +1,18 @@
 import IndexView from './views/indexview';
 import PortfolioView from './views/portfolioview';
 import WeddingsView from './views/weddingview';
+import EventsView from './views/eventsview';
+import PeopleView from './views/peopleview';
+import InspirationView from './views/inspirationview';
 
 var Router = Backbone.Router.extend({
   routes: {
     '': 'index',
     'portfolio': 'portfolio',
     'portfolio/weddings': 'weddings',
+    'portfolio/events': 'events',
+    'portfolio/people': 'people',
+    'portfolio/inspiration': 'inspiration',
     'about': 'about',
     'contact': 'contact'
   },
@@ -32,6 +38,36 @@ var Router = Backbone.Router.extend({
 
   weddings: function() {
     var view = new WeddingsView();
+    $('.page').html(view.el);
+    $('.grid').masonry({
+      itemSelector: '.grid-item',
+      columnWidth: 200,
+      gutter: 5
+    });
+  },
+
+  events: function() {
+    var view = new EventsView();
+    $('.page').html(view.el);
+    $('.grid').masonry({
+      itemSelector: '.grid-item',
+      columnWidth: 200,
+      gutter: 5
+    });
+  },
+
+  people: function() {
+    var view = new PeopleView();
+    $('.page').html(view.el);
+    $('.grid').masonry({
+      itemSelector: '.grid-item',
+      columnWidth: 200,
+      gutter: 5
+    });
+  },
+
+  inspiration: function() {
+    var view = new InspirationView();
     $('.page').html(view.el);
     $('.grid').masonry({
       itemSelector: '.grid-item',

@@ -5,5 +5,16 @@ import router from './router';
 
   $(document).ready(function(){
     Backbone.history.start();
+
+    $(window).scroll(function() {
+      var height = $('body').height();
+      var scrollTop = $('body').scrollTop();
+
+      if(scrollTop > 200) {
+        $('.nav').addClass('collapsed');
+      } else {
+        $('.nav').removeClass('collapsed');
+      }
+    });
   });
 })();
