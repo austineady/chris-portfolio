@@ -6,6 +6,8 @@ import router from './router';
   $(document).ready(function(){
     Backbone.history.start();
 
+
+
     $(window).scroll(function() {
       var height = $('body').height();
       var scrollTop = $('body').scrollTop();
@@ -28,6 +30,22 @@ import router from './router';
       } else {
         $('.side-nav').addClass('side-nav-active');
       }
-  });
+    });
+    $('.nav-portfolio').click(function(e) {
+      $('.nav-title').removeClass('nav-active');
+      $('.nav-portfolio').addClass('nav-active');
+    });
+    $('.nav-about').click(function(e) {
+      $('.nav-title').removeClass('nav-active');
+      $('.nav-about').addClass('nav-active');
+    });
+    $('.nav-contact').click(function(e) {
+      $('.nav-title').removeClass('nav-active');
+      $('.nav-contact').addClass('nav-active');
+    });
+    $('.nav-index').click(function(e) {
+      $('.nav-title').removeClass('nav-active');
+      $('.nav-index').addClass('nav-active');
+    });
 });
 })();
