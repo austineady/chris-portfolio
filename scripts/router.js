@@ -4,6 +4,7 @@ import WeddingsView from './views/weddingview';
 import EventsView from './views/eventsview';
 import PeopleView from './views/peopleview';
 import InspirationView from './views/inspirationview';
+import ContactView from './views/contactview';
 
 var Router = Backbone.Router.extend({
   routes: {
@@ -13,7 +14,6 @@ var Router = Backbone.Router.extend({
     'portfolio/events': 'events',
     'portfolio/people': 'people',
     'portfolio/inspiration': 'inspiration',
-    'about': 'about',
     'contact': 'contact'
   },
 
@@ -24,11 +24,18 @@ var Router = Backbone.Router.extend({
   index: function() {
     var view = new IndexView();
     $('.page').html(view.el);
-    $('.grid').masonry({
+    var grid = document.querySelector('.grid');
+  var msnry;
+
+  imagesLoaded( grid, function() {
+    // init Isotope after all images have loaded
+    msnry = new Masonry( grid, {
       itemSelector: '.grid-item',
-      columnWidth: 200,
-      gutter: 5
+      columnWidth: '.grid-sizer',
+      percentPosition: true
     });
+  });
+
   },
 
   portfolio: function() {
@@ -39,41 +46,70 @@ var Router = Backbone.Router.extend({
   weddings: function() {
     var view = new WeddingsView();
     $('.page').html(view.el);
-    $('.grid').masonry({
+    var grid = document.querySelector('.grid');
+  var msnry;
+
+  imagesLoaded( grid, function() {
+    // init Isotope after all images have loaded
+    msnry = new Masonry( grid, {
       itemSelector: '.grid-item',
-      columnWidth: 200,
-      gutter: 5
+      columnWidth: '.grid-sizer',
+      percentPosition: true
     });
+  });
   },
 
   events: function() {
     var view = new EventsView();
     $('.page').html(view.el);
-    $('.grid').masonry({
+    var grid = document.querySelector('.grid');
+  var msnry;
+
+  imagesLoaded( grid, function() {
+    // init Isotope after all images have loaded
+    msnry = new Masonry( grid, {
       itemSelector: '.grid-item',
-      columnWidth: 200,
-      gutter: 5
+      columnWidth: '.grid-sizer',
+      percentPosition: true
     });
+  });
   },
 
   people: function() {
     var view = new PeopleView();
     $('.page').html(view.el);
-    $('.grid').masonry({
+    var grid = document.querySelector('.grid');
+  var msnry;
+
+  imagesLoaded( grid, function() {
+    // init Isotope after all images have loaded
+    msnry = new Masonry( grid, {
       itemSelector: '.grid-item',
-      columnWidth: 200,
-      gutter: 5
+      columnWidth: '.grid-sizer',
+      percentPosition: true
     });
+  });
   },
 
   inspiration: function() {
     var view = new InspirationView();
     $('.page').html(view.el);
-    $('.grid').masonry({
+    var grid = document.querySelector('.grid');
+  var msnry;
+
+  imagesLoaded( grid, function() {
+    // init Isotope after all images have loaded
+    msnry = new Masonry( grid, {
       itemSelector: '.grid-item',
-      columnWidth: 200,
-      gutter: 5
+      columnWidth: '.grid-sizer',
+      percentPosition: true
     });
+  });
+},
+
+  contact: function() {
+    var view = new ContactView();
+    $('.page').html(view.el);
   }
 });
 

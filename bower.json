@@ -6,6 +6,7 @@
     "bourbon": "~4.2.3",
     "commonjs-require": "~1.4.5",
     "handlebars": "~3.0.3",
+    "imagesloaded": "~3.2.0",
     "jquery": "~2.1.1",
     "masonry": "~3.3.2",
     "modernizr": "~2.8.1",

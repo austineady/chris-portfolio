@@ -2,7 +2,8 @@
 @import '../bower_components/neat/app/assets/stylesheets/neat';
 
 // Typography
-$base-font-family: 'Josefin Sans', sans-serif;;
+// $base-font-family: 'Josefin Sans', sans-serif;;
+$base-font-family: 'Cinzel', serif;
 
 // Colors
 $blue: #477dca;
@@ -10,19 +11,94 @@ $dark-gray: #333;
 $medium-gray: #999;
 $light-gray: #ddd;
 $very-light-gray: #fafafa;
-$white: rgba(240, 240, 240, 1);
+$white: rgba(245, 245, 245, 1);
+$brown: rgba(161, 136, 127, 1);
+$dark-brown: rgba(121, 85, 72, 1);
+$darkest-brown: rgba(24, 21, 20, 1);
+$title-brown: rgba(65, 57, 54, 1);
 
 $base-font-color: $dark-gray;
 $base-background-color: $very-light-gray;
 
+html,body {
+  overflow-x: hidden;
+}
+
 body {
-  @include outer-container(1500px);
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   font-family: $base-font-family;
-  background-color: $base-background-color;
+  background-color: $white;
   color: $base-font-color;
-  margin: 0;
+  margin: 0 auto;
   list-style: none;
+}
+
+//grid css
+* {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+/* force scrollbar */
+html { overflow-y: scroll; }
+
+body {
+  font-family: $base-font-family;
+}
+
+/* ---- isotope ---- */
+
+.grid {
+  background: #DDD;
+}
+
+/* clear fix */
+.grid:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+/* ---- .grid-item ---- */
+
+.grid-sizer,
+.grid-item {
+  width: 33.333%;
+  min-width: 400px;
+}
+
+.grid-item {
+  float: left;
+}
+
+.grid-caption {
+  height: 0;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  transition: 1s;
+  background: linear-gradient(rgba(0, 0, 0, .3), rgba(0, 0, 0, .7));
+  color: white;
+  text-align: center;
+}
+
+.grid-item:hover .grid-caption {
+  height: 30px;
+  transition: 1s;
+  line-height: 30px;
+}
+
+.grid-item img {
+  display: block;
+  max-width: 100%;
+}
+//
+
+#app {
+  width: 100vw;
 }
 
 a {
@@ -35,15 +111,16 @@ img {
 }
 
 .header-logo {
-  @include span-columns(12);
   text-align: center;
   font-size: 25px;
   margin-bottom: 10px;
+  font-weight: 700;
+  color: $dark-brown;
 }
 
 .nav {
-  @include span-columns(12);
-  height: auto;
+  width: 100%;
+  height: 80px;
   position: fixed;
   top: 0;
   z-index: 9;
@@ -51,7 +128,13 @@ img {
   padding: 10px;
   padding-bottom: 0;
   transition: 2s;
-  background-color: rgba(240, 240, 240, 1);
+  background-color: $white;
+  color: $brown;
+}
+
+.grid-container {
+  position: relative;
+  top: 80px;
 }
 
 .collapsed {
@@ -98,8 +181,8 @@ img {
 }
 
 .nav-title {
-  @include span-columns(1.3);
-  @include shift(1.3);
+  width: 33%;
+  float: left;
   text-align: center;
 }
 
@@ -113,40 +196,47 @@ img {
   transition: 1s;
 }
 
-.grid {
-  padding-left: 10px;
+.hero-image {
+  background-image: url("./../../assets/herofront.jpeg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 600px;
 }
 
-.grid-item {
-  margin-top: 5px;
-}
+// .grid {
+//   padding-left: 10px;
+// }
+
+// .grid-item {
+//   margin-top: 5px;
+// }
 
 .landscape {
-  width: 300px;
+  width: 350px;
   height: 200px;
 }
 
 .portrait {
-  width: 400px;
-  height: 300px;
+  width: 200px;
+  height: 350px;
 }
 
 .page {
-  @include span-columns(12);
+  width: 100%;
+  margin: 0 auto;
 }
 
 .nav-active {
-  border-bottom: 3px solid black;
+  font-weight: 700;
 }
 
 .modal {
   position: fixed;
-  height: 400px;
-  width: 600px;
-  background-color: rgba(250, 250, 250, 1);
-  top: 5%;
-  left: 20%;
-  z-index: 11;
+  width: 90%;
+  height: 90vh;
+  top: 50px;
+  left: 5%;
 }
 
 .underlay {
@@ -155,7 +245,7 @@ img {
   bottom: 0;
   left: 0;
   right: 0;
-  background-color: #101112;
+  background-color: $darkest-brown;
   z-index: 10;
   transition: 3s;
 }
@@ -166,13 +256,13 @@ img {
 }
 
 .modal-box {
-  @include span-columns(12);
-  height: 90vh;
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
 }
 
 .modal-picture {
-  width: 100%;
-  height: auto;
+  max-height: 90vh;
 }
 
 .close-modal {
@@ -190,6 +280,7 @@ img {
   @include omega();
   position: relative;
   margin-left: 5px;
+  margin-bottom: 5px;
   height: 600px;
   background-size: cover;
   background-repeat: no-repeat;
@@ -210,6 +301,7 @@ img {
   bottom: 0;
   right: 0;
   cursor: pointer;
+  transition: 1s;
 }
 
 .events-overlay {
@@ -291,6 +383,7 @@ img {
   background-size: cover;
   background-repeat: no-repeat;
   opacity: 0;
+  transition: 1s;
 }
 
 .events {
@@ -305,9 +398,17 @@ img {
   background-image: linear-gradient(rgba(255, 255, 255, 1), rgba(255, 255, 255, 1)), url("https://images.unsplash.com/photo-1441802763029-b621005a04a5?q=80&fm=jpg&s=f312571ea82c8dfbabc6ee71b2d2d571");
 }
 
-div.weddings-overlay:hover ~ div.weddings {
+.weddings-overlay:hover ~ .weddings {
   opacity: 1;
   transition: 2s;
+}
+
+.weddings-overlay:hover {
+  opacity: 0;
+}
+
+.weddings:hover ~ .weddings-overlay {
+  opacity: 0;
 }
 
 // .weddings:hover {
@@ -356,4 +457,8 @@ div.weddings-overlay:hover ~ div.weddings {
 .wedding-grid {
   width: 400px;
   height: 300px;
+}
+
+.contact-container {
+  border: 1px solid red;
 }

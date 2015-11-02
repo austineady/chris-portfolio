@@ -12,19 +12,30 @@ export default Backbone.View.extend({
   initialize: function() {
     this.collection = new ImageCollection([
       {
-        url: 'https://images.unsplash.com/photo-1433148749784-5e235e9efd12?q=80&fm=jpg&s=7c1592ac1b4d576a48af77f6c2e0ab14'
+        url: './../../assets/inspiration-1.jpeg',
+        name: "Mountain View at Sunset"
       },
       {
-        url: 'https://images.unsplash.com/photo-1433148749784-5e235e9efd12?q=80&fm=jpg&s=7c1592ac1b4d576a48af77f6c2e0ab14'
+        url: './../../assets/inspiration-landscape-3.jpeg'
       },
       {
-        url: 'https://images.unsplash.com/photo-1433148749784-5e235e9efd12?q=80&fm=jpg&s=7c1592ac1b4d576a48af77f6c2e0ab14'
+        url: './../../assets/inspiration-portrait-2.jpeg'
       },
       {
-        url: 'https://images.unsplash.com/photo-1433148749784-5e235e9efd12?q=80&fm=jpg&s=7c1592ac1b4d576a48af77f6c2e0ab14'
+        url: './../../assets/people-landscape-1.jpeg',
+        name: "Skaters at the Beach"
       },
       {
-        url: 'https://images.unsplash.com/photo-1433148749784-5e235e9efd12?q=80&fm=jpg&s=7c1592ac1b4d576a48af77f6c2e0ab14'
+        url: './../../assets/people-landscape-2.jpeg'
+      },
+      {
+        url: './../../assets/wedding-landscape-2.jpeg'
+      },
+      {
+        url: './../../assets/wedding-landscape-1.jpeg'
+      },
+      {
+        url: './../../assets/wedding-portrait-3.jpeg'
       },
     ]);
     this.render();
@@ -42,7 +53,7 @@ export default Backbone.View.extend({
     var view = new ImageView({
       model: child
     });
-    this.$('.grid').append(view.el);
+    this.$('.grid-sizer').append(view.el);
     return view;
   }.bind(this));
 
